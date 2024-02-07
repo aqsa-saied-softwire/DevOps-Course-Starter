@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from todo_app.flask_config import Config
 from todo_app.data.trello_items import trello_get_items, trello_add_item, change_to_doing, change_to_done
+from todo_app.data.item_class import Item
 
 app = Flask(__name__)
 app.config.from_object(Config())
-trello_get_items()
 
 @app.route('/')
 def index():

@@ -1,12 +1,21 @@
 import requests, json, os
 
+class Item:
+    def __init__(self, id, name, status = 'To Do'):
+        self.id = id
+        self.name = name
+        self.status = status
+
+    @classmethod
+    def from_trello_card(cls, card):
+        return cls(card['id'], card['name'], card['status'])
+    
 board_id = os.getenv('BOARD_ID')
 api_key = os.getenv('TRELLO_API_KEY')
 token = os.getenv('TRELLO_API_TOKEN')
 to_do_list = os.getenv('TO_DO_LIST_ID')
 doing_list = os.getenv('DOING_LIST_ID')
 done_list = os.getenv('DONE_LIST_ID')
-
 
 def trello_get_items():
     url = 'https://api.trello.com/1/boards/{board_id}/lists'.format(board_id=board_id)
@@ -31,7 +40,8 @@ def trello_get_items():
         status = list["name"]
         tasks = list["cards"]
         for task in tasks:
-            items.append({ 'id': task['id'], 'status': status, 'title': task['name']})
+            item = Item.from_trello_card(card={ 'id': task['id'], 'status': status, 'name': task['name']})
+            items.append(item)
     return items
 
 def trello_add_item(title):
