@@ -1,15 +1,13 @@
 import requests, json, os
 from todo_app.data.item_class import Item
 
-board_id = os.getenv('BOARD_ID')
-api_key = os.getenv('TRELLO_API_KEY')
-token = os.getenv('TRELLO_API_TOKEN')
-to_do_list = os.getenv('TO_DO_LIST_ID')
-doing_list = os.getenv('DOING_LIST_ID')
-done_list = os.getenv('DONE_LIST_ID')
-
-
 def trello_get_items():
+    board_id = os.getenv('BOARD_ID')
+    api_key = os.getenv('TRELLO_API_KEY')
+    token = os.getenv('TRELLO_API_TOKEN')
+    to_do_list = os.getenv('TO_DO_LIST_ID')
+    doing_list = os.getenv('DOING_LIST_ID')
+    done_list = os.getenv('DONE_LIST_ID')
     url = 'https://api.trello.com/1/boards/{board_id}/lists'.format(board_id=board_id)
     headers = {
         "Accept": "*/*"
@@ -32,7 +30,8 @@ def trello_get_items():
         status = listOfItems["name"]
         tasks = listOfItems["cards"]
         for task in tasks:
-            item = Item.from_trello_card(card={'id': task['id'], 'status': status, 'name': task['name']})
+            task['status'] = status
+            item = Item.from_trello_card(card=task)
             items.append(item)
     return items
 
