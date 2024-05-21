@@ -57,3 +57,9 @@ Press CTRL+C to quit
  * Debugger PIN: 113-666-066
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+## Provision a VM from an Ansible Control Node
+Run the following command
+```bash
+ansible-playbook playbook.yml -i hosts.ini
+```
