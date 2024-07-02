@@ -87,7 +87,7 @@ docker build --target development --tag todo-app:dev .
 For prod, build the container by running:
 
 ```
-docker build --target production --tag todo-app:prod
+docker build --target production --tag todo-app:prod .
 ```
 
 Then run the container by running:
