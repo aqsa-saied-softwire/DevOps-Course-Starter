@@ -11,8 +11,8 @@
     <div class="col-md-12">
       <h2>Items</h2>
       <ul class="list-group mb-4">
-        {% for item in items%}
-          <li>{{item.id}} {{item.name}}: {{item.status}}</li>
+        {% for item in view_model.items %}
+        <li>{{item.id}} {{item.name}}: {{item.status}}</li>
           <form action="/update-doing" method="post">
             <input type="submit" value="Mark as Doing">
             <input type="hidden" id="id" name="id" value="{{item.id}}"><br>

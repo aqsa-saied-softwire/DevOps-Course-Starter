@@ -1,4 +1,5 @@
 import requests, json, os
+from todo_app import app
 from todo_app.data.item_class import Item
 
 
@@ -6,23 +7,11 @@ def trello_get_items():
     board_id = os.getenv('BOARD_ID')
     api_key = os.getenv('TRELLO_API_KEY')
     token = os.getenv('TRELLO_API_TOKEN')
-    url = 'https://api.trello.com/1/boards/{board_id}/lists'.format(board_id=board_id)
-    headers = {
-        "Accept": "*/*"
-    }
-
-    query = {
-        'key': api_key,
-        'token': token,
-        'cards': 'open'
-    }
-    response = requests.request(
-        "GET",
-        url,
-        headers=headers,
-        params=query
+    url = f'https://api.trello.com/1/boards/{board_id}/lists?cards=open&key={api_key}&token={token}'
+    response = requests.get(
+        url
     )
-    lists = json.loads(response.text)
+    lists = response.json()
     items = []
     for listOfItems in lists:
         status = listOfItems["name"]

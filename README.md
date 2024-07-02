@@ -62,4 +62,10 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 Run the following command
 ```bash
 ansible-playbook playbook.yml -i hosts.ini
+=======
+## Running the tests
+
+Run the tests using the following command:
+```bash
+$ poetry run pytest
 ```
