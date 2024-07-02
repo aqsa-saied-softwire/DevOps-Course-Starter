@@ -103,3 +103,12 @@ To run the container with automatic reloading during development, run
 ```
 docker run --publish 8000:8000 --env-file .env  --mount "type=bind,source=$(pwd)/todo_app,target=/todo_app/todo_app" -it todo-app:dev
 ```
+
+## Run tests in docker
+
+Run the following commands:
+
+```
+docker build --target test --tag todo-app:test .
+docker run todo-app:test
+```
