@@ -35,17 +35,20 @@ You'll also need to clone a new `.env` file from the `.env.template` to store lo
 ```bash
 $ cp .env.template .env  # (first time only)
 ```
+
 After doing this step make sure to fill in the trello information in the `.env` file.
 The `.env` file is used by flask to set environment variables when running `flask run`. This enables things like development mode (which also enables features like hot reloading when you make a file change). There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/2.3.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie.
 
 ## Running the App
 
 Once the all dependencies have been installed, start the Flask app in development mode within the Poetry environment by running:
+
 ```bash
 $ poetry run flask run
 ```
 
 You should see output similar to the following:
+
 ```bash
  * Serving Flask app 'todo_app/app'
  * Debug mode: on
@@ -56,11 +59,14 @@ Press CTRL+C to quit
  * Debugger is active!
  * Debugger PIN: 113-666-066
 ```
+
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
 ## Provision a VM from an Ansible Control Node
+
 Run the following command
-```bash
+
+````bash
 ansible-playbook playbook.yml -i hosts.ini
 =======
 ## Running the tests
@@ -68,4 +74,32 @@ ansible-playbook playbook.yml -i hosts.ini
 Run the tests using the following command:
 ```bash
 $ poetry run pytest
+````
+
+## Running the app in a container
+
+For local development, first build the container by running:
+
+```
+docker build --target development --tag todo-app:dev .
+```
+
+For prod, build the container by running:
+
+```
+docker build --target production --tag todo-app:prod
+```
+
+Then run the container by running:
+
+```
+docker run --publish 8000:8000 --env-file .env -it todo-app:dev
+```
+
+(Replace todo-app:dev with todo-app:prod to run the prod container)
+
+To run the container with automatic reloading during development, run
+
+```
+docker run --publish 8000:8000 --env-file .env  --mount "type=bind,source=$(pwd)/todo_app,target=/todo_app/todo_app" -it todo-app:dev
 ```
