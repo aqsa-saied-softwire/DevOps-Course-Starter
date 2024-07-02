@@ -58,6 +58,11 @@ Press CTRL+C to quit
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
+## Provision a VM from an Ansible Control Node
+Run the following command
+```bash
+ansible-playbook playbook.yml -i hosts.ini
+=======
 ## Running the tests
 
 Run the tests using the following command:
