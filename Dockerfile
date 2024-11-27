@@ -3,7 +3,7 @@ FROM python:3 as base
 RUN pip install poetry
 COPY . /app
 WORKDIR /app
-RUN poetry install
+RUN poetry config virtualenvs.create false --local && poetry install
 EXPOSE 8000
 
 FROM base as production
