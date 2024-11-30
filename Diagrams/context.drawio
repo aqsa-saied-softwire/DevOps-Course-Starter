@@ -1,0 +1,29 @@
+<mxfile host="app.diagrams.net" modified="2024-07-02T10:59:17.275Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="7cMphXnLbp8fSqTaFhEb" version="24.6.4" type="device">
+  <diagram name="Page-1" id="9pIu6Ed8cnKU7W5_v3Zo">
+    <mxGraphModel dx="1781" dy="1775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="User" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry y="-20" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="App" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="13" y="140" width="42" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Storage" style="whiteSpace=wrap;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="-0.5" y="280" width="69" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="User interaction with UI" style="curved=1;startArrow=classic;endArrow=classic;exitX=0.5;exitY=0.99;entryX=0.51;entryY=-0.01;startFill=1;endFill=1;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6" value="Data storage and retrieval" style="curved=1;startArrow=classic;endArrow=classic;exitX=0.51;exitY=0.97;entryX=0.5;entryY=0;startFill=1;endFill=1;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
