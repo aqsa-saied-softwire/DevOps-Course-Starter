@@ -118,8 +118,8 @@ docker run todo-app:test
 run
 
 ```
-docker build --target <build_phase> --tag aqsasaied/todo-app:latest .
-docker push aqsasaied/todo-app:latest
+docker build --target <build_phase> --tag aqsasaied/todo-app:prod .
+docker push aqsasaied/todo-app:prod
 ```
 
 Make a post request to the webhook to update the server.
