@@ -112,3 +112,14 @@ Run the following commands:
 docker build --target test --tag todo-app:test .
 docker run todo-app:test
 ```
+
+## Deployement process
+
+run
+
+```
+docker build --target <build_phase> --tag aqsasaied/todo-app:prod .
+docker push aqsasaied/todo-app:prod
+```
+
+Make a post request to the webhook to update the server.
