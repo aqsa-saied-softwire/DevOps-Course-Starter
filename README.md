@@ -113,6 +113,13 @@ docker build --target test --tag todo-app:test .
 docker run todo-app:test
 ```
 
-## Deployement link
+## Deployement process
 
-https://aqsatodo.azurewebsites.net/
+run
+
+```
+docker build --target <build_phase> --tag aqsasaied/todo-app:latest .
+docker push aqsasaied/todo-app:latest
+```
+
+Make a post request to the webhook to update the server.
